@@ -1,0 +1,92 @@
+/* style.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #b1d4a1; /* Warna hijau matcha */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #ededed;
+  text-align: center;
+  flex-direction: column;
+}
+
+h1, h2 {
+  margin: 10px 0;
+}
+
+
+
+label, input, button {
+  display: block;
+  margin: 10px auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+label {
+  font-size: 18px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #54ab7e;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1d6839;
+}
+
+#result {
+  margin-top: 5px;
+  text-align: center;
+}
+
+#result img {
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+/* Loading Screen */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #d0f0c0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#loading-logo {
+  width: 100px;
+  height: auto;
+  animation: logoChange 3s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes logoChange {
+  0% { opacity: 1; content: url('img/male.png'); }
+  33.33% { opacity: 0; }
+  33.34% { opacity: 1; content: url('img/female.png'); }
+  66.66% { opacity: 0; }
+  66.67% { opacity: 1; content: url('img/unknown.png'); }
+  100% { opacity: 0; }
+  0%, 33.33%, 66.66%, 100% { opacity: 1; }
+}

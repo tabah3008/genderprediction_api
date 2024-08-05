@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Gender Prediction</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <img src="male.png" id="loading-logo" alt="Loading...">
+  </div>
+
+  <div id="content" style="display: none;">
+    <h1>Tebak Gender</h1>
+    <h2>Masukkan Nama</h2>
+    <form id="gender-form" onsubmit="return false;">
+      <input type="text" id="name" name="name" required>
+      <button type="button" onclick="checkGender()">GAS!!!</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="script.js">  
+  </script>
+</body>
+</html>
