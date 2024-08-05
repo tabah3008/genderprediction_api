@@ -20,20 +20,20 @@ function checkGender() {
 
         if (data.gender === 'male') {
           genderText = 'Male';
-          imageSrc = 'img/male.png'; // Ganti dengan URL gambar gender male
+          imageSrc = 'male.png'; // Ganti dengan URL gambar gender male
         } else if (data.gender === 'female') {
           genderText = 'Female';
-          imageSrc = 'img/female.png'; // Ganti dengan URL gambar gender female
+          imageSrc = 'female.png'; // Ganti dengan URL gambar gender female
         } else {
           genderText = 'Unknown';
-          imageSrc = 'img/unknown.png'; // Ganti dengan URL gambar gender unknown
+          imageSrc = 'unknown.png'; // Ganti dengan URL gambar gender unknown
         }
 
         resultDiv.innerHTML = `
           <p>Nama : ${data.name}</p>
           <p>${genderText}</p>
           <img src="${imageSrc}" alt="${genderText}" style="width:120px;height:auto;">
-          <p>Probability : ${data.probability * 100}%</p>
+          <p>Probability : ${data.probability * 100} %</p>
           
         `;
       })

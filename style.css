@@ -82,11 +82,11 @@ button:hover {
 }
 
 @keyframes logoChange {
-  0% { opacity: 1; content: url('img/male.png'); }
+  0% { opacity: 1; content: url('male.png'); }
   33.33% { opacity: 0; }
-  33.34% { opacity: 1; content: url('img/female.png'); }
+  33.34% { opacity: 1; content: url('female.png'); }
   66.66% { opacity: 0; }
-  66.67% { opacity: 1; content: url('img/unknown.png'); }
+  66.67% { opacity: 1; content: url('unknown.png'); }
   100% { opacity: 0; }
   0%, 33.33%, 66.66%, 100% { opacity: 1; }
 }
