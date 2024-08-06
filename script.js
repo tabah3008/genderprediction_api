@@ -8,7 +8,7 @@ function checkGender() {
   var name = document.getElementById("name").value.trim(); // Menghapus spasi di awal dan akhir
 
   // Cek apakah input hanya mengandung huruf alfabet
-  var isAlphabet = /^[a-zA-Z]+$/.test(name);
+  var isAlphabetandSpace = /^[a-zA-Z\s]+$/.test(name);
 
   if (name === "") {
     Swal.fire({
@@ -20,7 +20,7 @@ function checkGender() {
         confirmButton: 'custom-button'
       }
     });
-  } else if (!isAlphabet) {
+  } else if (!isAlphabetandSpace) {
     Swal.fire({
       title: 'Peringatan',
       text: 'Nama hanya boleh mengandung huruf alfabet, tanpa angka atau simbol.',
