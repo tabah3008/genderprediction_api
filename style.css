@@ -1,7 +1,8 @@
 /* style.css */
 body {
   font-family: Arial, sans-serif;
-  background-color: #b1d4a1; /* Warna hijau matcha */
+  background-color: #b1d4a1;
+  /* Warna hijau matcha */
   margin: 0;
   padding: 0;
   display: flex;
@@ -13,13 +14,16 @@ body {
   flex-direction: column;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin: 10px 0;
 }
 
 
 
-label, input, button {
+label,
+input,
+button {
   display: block;
   margin: 10px auto;
   width: 100%;
@@ -77,16 +81,49 @@ button:hover {
 #loading-logo {
   width: 100px;
   height: auto;
-  animation: logoChange 3s infinite;
+  animation: logoChange 6s infinite;
   animation-timing-function: ease-in-out;
 }
 
 @keyframes logoChange {
-  0% { opacity: 1; content: url('male.png'); }
-  33.33% { opacity: 0; }
-  33.34% { opacity: 1; content: url('female.png'); }
-  66.66% { opacity: 0; }
-  66.67% { opacity: 1; content: url('unknown.png'); }
-  100% { opacity: 0; }
-  0%, 33.33%, 66.66%, 100% { opacity: 1; }
+  0% {
+    opacity: 1;
+    content: url('male.png');
+  }
+
+  33.33% {
+    opacity: 0;
+  }
+
+  33.34% {
+    opacity: 1;
+    content: url('female.png');
+  }
+
+  66.66% {
+    opacity: 0;
+  }
+
+  66.67% {
+    opacity: 1;
+    content: url('unknown.png');
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+  0%,
+  33.33%,
+  66.66%,
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Custom SweetAlert button style */
+.swal2-confirm.custom-button {
+  background-color: #54ab7e !important;
+  border: none !important;
+  color: white !important;
 }

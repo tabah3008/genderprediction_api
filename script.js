@@ -5,43 +5,76 @@ window.onload = function() {
 };
 
 function checkGender() {
-  var name = document.getElementById("name").value;
-  var resultDiv = document.getElementById("result");
-  resultDiv.innerHTML = ""; // Kosongkan hasil sebelumnya
+  var name = document.getElementById("name").value.trim(); // Menghapus spasi di awal dan akhir
 
-  if (name) {
+  // Cek apakah input hanya mengandung huruf alfabet
+  var isAlphabet = /^[a-zA-Z]+$/.test(name);
+
+  if (name === "") {
+    Swal.fire({
+      title: 'Peringatan',
+      text: 'Jangan kosong namanya',
+      icon: 'warning',
+      confirmButtonText: 'OK',
+      customClass: {
+        confirmButton: 'custom-button'
+      }
+    });
+  } else if (!isAlphabet) {
+    Swal.fire({
+      title: 'Peringatan',
+      text: 'Nama hanya boleh mengandung huruf alfabet, tanpa angka atau simbol.',
+      icon: 'warning',
+      confirmButtonText: 'OK',
+      customClass: {
+        confirmButton: 'custom-button'
+      }
+    });
+  } else {
     var url = "https://api.genderize.io/?name=" + encodeURIComponent(name);
 
     fetch(url)
       .then(response => response.json())
       .then(data => {
         var genderText = '';
-        var imageSrc = '';
+        var probability = (data.probability * 100).toFixed(2);
 
         if (data.gender === 'male') {
           genderText = 'Male';
-          imageSrc = 'male.png'; // Ganti dengan URL gambar gender male
+          imageSrc = 'male.png'
         } else if (data.gender === 'female') {
           genderText = 'Female';
-          imageSrc = 'female.png'; // Ganti dengan URL gambar gender female
+          imageSrc = 'female.png'
         } else {
           genderText = 'Unknown';
-          imageSrc = 'unknown.png'; // Ganti dengan URL gambar gender unknown
+          imageSrc = 'unknown.png'
         }
 
-        resultDiv.innerHTML = `
-          <p>Nama : ${data.name}</p>
-          <p>${genderText}</p>
-          <img src="${imageSrc}" alt="${genderText}" style="width:120px;height:auto;">
-          <p>Probability : ${data.probability * 100} %</p>
-          
-        `;
+        // Menampilkan hasil dengan SweetAlert
+        Swal.fire({
+          title: `${data.name}`,
+          html: `
+            <p>Gender: ${genderText}</p>
+            <img src="${imageSrc}" alt="${genderText}" style="width:120px;height:auto;">
+            <p>Probability: ${probability}%</p>
+          `,
+          confirmButtonText: 'OK',
+          customClass: {
+            confirmButton: 'custom-button'
+          }
+        });
       })
       .catch(error => {
         console.error("Error fetching data:", error);
-        resultDiv.innerHTML = "<p>Terjadi kesalahan saat mengambil data.</p>";
+        Swal.fire({
+          title: 'Error',
+          text: 'Terjadi kesalahan saat mengambil data.',
+          icon: 'error',
+          confirmButtonText: 'OK',
+          customClass: {
+            confirmButton: 'custom-button'
+          }
+        });
       });
-  } else {
-    alert("Jangan kosong namanya");
   }
 }
